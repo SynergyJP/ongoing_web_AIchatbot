@@ -1,0 +1,469 @@
+
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src=""></script>
+    <script src=""></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        @import url('');
+        .nav-link {
+            transition: color 0.3s;
+        }
+        .nav-link.active, .nav-link:hover {
+            color: #A16207; 
+        }
+        .trick-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .trick-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 1rem;
+            left: -0.8rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 9999px;
+            background-color: #FEFCE8; 
+            border: 4px solid #FACC15; 
+            z-index: 10;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .avatar-container {
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 2px solid #FBBF24;
+            background-color: #334155; 
+        }
+        .avatar-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+        }
+        .message-bubble-bot {
+            background-color: #f3f4f6; 
+            border-radius: 0.75rem;
+        }
+         .message-bubble-user {
+            background-color: #facc15; 
+            border-radius: 0.75rem;
+        }
+        .typing-indicator span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #fefce8;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1.0); }
+        }
+    </style>
+</head>
+<body class="bg-yellow-50 text-gray-800">
+
+    <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="" class="text-2xl font-bold text-yellow-600"></a>
+            <div class="hidden md:flex space-x-8">
+                <a href="" class="nav-link text-gray-600"></a>
+                ...
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-600">
+                <svg xmlns="" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#" class="block py-2 px-4 text-sm text-gray-600 hover:bg-yellow-100"></a>
+            //
+        </div>
+    </header>
+
+    <main>
+        <section id="" class="min-h-[60vh] flex items-center bg-cover bg-center" style="background-image: linear-gradient(rgba(254, 252, 232, 0.8), rgba(254, 252, 232, 1)), url('');">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-yellow-700 mb-4"></h1>
+                <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto"></p>
+            </div>
+        </section>
+
+        <section id="" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4"></h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto"></p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4"></h3>
+                        <p class="text-gray-700 mb-4"></p>
+                        <div class="mt-6 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                           <h4 class="font-bold text-yellow-800"></h4>
+                           <p class="text-sm text-yellow-700"></p>
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <div class="w-64 h-64 bg-yellow-100 rounded-full flex flex-col justify-center items-center p-4 text-center shadow-lg">
+                             <span class="text-6xl">🤸</span>
+                             <h4 class="text-xl font-bold text-yellow-800">Body, Not Hands</h4>
+                             <p class="text-sm text-yellow-700"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="" class="py-16 md:py-24 bg-gray-800 text-white">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Meet Your .... </h2>
+                    <p class="text-lg text-yellow-200 max-w-2xl mx-auto"></p>
+                </div>
+                <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-2xl overflow-hidden">
+                    <div class="bg-yellow-500 p-4 flex items-center space-x-4">
+                        <div class="avatar-container">
+                            <img id="avatar-img" src="" alt="" class="avatar-image">
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white"></h3>
+                            <p id="avatar-status" class="text-sm text-yellow-100"></p>
+                        </div>
+                    </div>
+                    <div id="chat-window" class="p-6 h-96 overflow-y-auto space-y-4">
+                    </div>
+                    <div class="p-4 bg-gray-100 border-t">
+                        <form id="chat-form" class="flex items-center space-x-2">
+                           <input id="chat-input" type="text" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-800" placeholder="Type your question...">
+                           <button id="chat-submit-btn" type="submit" class="bg-yellow-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600 transition-colors flex-shrink-0 disabled:bg-gray-400">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <p></p>
+        </div>
+    </footer>
+
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const mobileNavLinks = mobileMenu.querySelectorAll('a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        const sections = document.querySelectorAll('main section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.onscroll = () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        };
+        
+        const playTabs = document.querySelectorAll('.play-tab');
+        const playTabContents = document.querySelectorAll('.play-tab-content');
+
+        playTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                playTabs.forEach(t => {
+                    t.classList.remove('active-tab', 'text-yellow-600', 'border-yellow-600');
+                    t.classList.add('text-gray-500');
+                });
+                tab.classList.add('active-tab', 'text-yellow-600', 'border-yellow-600');
+                tab.classList.remove('text-gray-500');
+                
+                playTabContents.forEach(content => content.classList.add('hidden'));
+                document.getElementById(`${tab.dataset.tab}-content`).classList.remove('hidden');
+            });
+        });
+        const tricksData = [
+            { name: '' },
+            
+        ];
+
+        const tricksGrid = document.getElementById('tricks-grid');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        function displayTricks(filter) {
+            tricksGrid.innerHTML = '';
+            const filteredTricks = filter === 'all' ? tricksData : tricksData.filter(trick => trick.level === filter);
+
+            filteredTricks.forEach(trick => {
+                let levelColor;
+                switch(trick.level) {
+                    case '': levelColor = 'bg-green-100 text-green-800'; break;
+                    case '': levelColor = 'bg-blue-100 text-blue-800'; break;
+                    case '': levelColor = 'bg-red-100 text-red-800'; break;
+                }
+                const card = `
+                    <div class="trick-card bg-white rounded-lg shadow-md p-6" data-level="${trick.level}">
+                        <div class="flex justify-between items-start mb-2">
+                           <h3 class="font-bold text-xl">${trick.name}</h3>
+                           <span class="text-xs font-medium px-2 py-1 rounded-full ${levelColor}">${trick.level.charAt(0).toUpperCase() + trick.level.slice(1)}</span>
+                        </div>
+                        <p class="text-gray-600">${trick.desc}</p>
+                    </div>
+                `;
+                tricksGrid.innerHTML += card;
+            });
+        }
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active-filter', 'bg-yellow-400', 'text-yellow-900');
+                    b.classList.add('bg-gray-200', 'text-gray-700');
+                    });
+                btn.classList.add('active-filter', 'bg-yellow-400', 'text-yellow-900');
+                btn.classList.remove('bg-gray-200', 'text-gray-700');
+                displayTricks(btn.dataset.filter);
+            });
+        });
+
+        displayTricks('all');
+
+        const netHeightCtx = document.getElementById('netHeightChart').getContext('2d');
+        new Chart(netHeightCtx, {
+            type: 'bar',
+            data: {
+                labels: [''],
+                datasets: [{
+                    label: '',
+                    data: [],
+                    backgroundColor: ['rgba(59, 130, 246, 0.6)', 'rgba(239, 68, 68, 0.6)', 'rgba(251, 191, 36, 0.6)'],
+                    borderColor: ['rgba(59, 130, 246, 1)', 'rgba(239, 68, 68, 1)', 'rgba(251, 191, 36, 1)'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                scales: { y: {  } },
+                plugins: { }
+            }
+        });
+
+        const chatWindow = document.getElementById('chat-window');
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatSubmitBtn = document.getElementById('chat-submit-btn');
+        const avatarImg = document.getElementById('avatar-img');
+        const avatarStatus = document.getElementById('avatar-status');
+        
+        let chatHistory = [];
+        let isBotTyping = false;
+        
+        
+        const avatarStates = {
+            idle: "",
+            active: "",
+            fallback: ""
+        };
+        
+        function setAvatarState(state) {
+            const timestamp = new Date().getTime();
+            const url = (avatarStates[state] || avatarStates.fallback) + `?t=${timestamp}`;
+            avatarImg.src = url;
+            avatarImg.onerror = () => { avatarImg.src = avatarStates.fallback; };
+        }
+
+        function addUserMessage(text) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'flex items-start gap-3 justify-end';
+            messageDiv.innerHTML = `
+                <div class="flex flex-col w-full max-w-[320px] leading-1.5 p-4 message-bubble-user">
+                    <p class="text-sm font-normal text-gray-900">${text.replace(/\n/g, '<br>')}</p>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center flex-shrink-0"><span class="text-xl"> </span></div>`;
+            chatWindow.appendChild(messageDiv);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+
+        function addBotMessage(fullText) {
+            const messageContainer = document.createElement('div');
+            messageContainer.className = 'flex items-start gap-3 justify-start';
+            
+            const avatarDiv = document.createElement('div');
+            avatarDiv.className = 'avatar-container';
+            const botAvatarImg = document.createElement('img');
+            
+            const timestamp = new Date().getTime();
+            botAvatarImg.src = avatarStates.active + `?t=${timestamp}`;
+            botAvatarImg.alt = "";
+            botAvatarImg.className = "avatar-image";
+            botAvatarImg.onerror = () => { botAvatarImg.src = avatarStates.fallback; };
+            avatarDiv.appendChild(botAvatarImg);
+
+            const textBubble = document.createElement('div');
+            textBubble.className = "flex flex-col w-full max-w-[320px] leading-1.5 p-4 message-bubble-bot";
+            const messageP = document.createElement('p');
+            messageP.className = "text-sm font-normal text-gray-900";
+            textBubble.appendChild(messageP);
+            
+            messageContainer.appendChild(avatarDiv);
+            messageContainer.appendChild(textBubble);
+            chatWindow.appendChild(messageContainer);
+            
+            let i = 0;
+            const speed = 20;
+
+            function typeWriter() {
+                if (i < fullText.length) {
+                    messageP.innerHTML += fullText.charAt(i);
+                    i++;
+                    chatWindow.scrollTop = chatWindow.scrollHeight;
+                    setTimeout(typeWriter, speed);
+                } else {
+                    setAvatarState('idle');
+                    chatSubmitBtn.disabled = false;
+                    avatarStatus.textContent = '';
+                }
+            }
+            typeWriter();
+        }
+
+        function setBotThinking(isThinking) {
+            isBotTyping = isThinking;
+            chatSubmitBtn.disabled = isThinking;
+            if(isThinking) {
+                setAvatarState('active');
+                avatarStatus.textContent = "....";
+            } else {
+                setAvatarState('idle');
+                avatarStatus.textContent = '';
+            }
+        }
+        
+        async function generateBotResponse(userInput) {
+            setBotThinking(true);
+            chatHistory.push({ role: "user", parts: [{ text: userInput }] });
+
+            const systemPrompt = "";
+            
+            const payload = {
+              contents: chatHistory,
+              systemInstruction: {
+                role: "system",
+                parts: [{ text: systemPrompt }],
+              },
+            };
+            
+            const apiKey = "";
+            const apiUrl = ``;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const errorDetails = await response.json().catch(() => ({ error: { message: "" }}));
+                    console.error("API Error Details:", errorDetails);
+                    throw new Error(errorDetails.error?.message || `API error: ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                
+                if (result.candidates && result.candidates[0].content && result.candidates[0].content.parts) {
+                    const botText = result.candidates[0].content.parts[0].text;
+                    chatHistory.push({ role: "model", parts: [{ text: botText }] });
+                    setBotThinking(false);
+                    addBotMessage(botText);
+                } else {
+                    chatHistory.pop();
+                    setBotThinking(false);
+                    addBotMessage("");
+                }
+            } catch (error) {
+                console.error('Error fetching AI response:', error);
+                chatHistory.pop();
+                setBotThinking(false);
+                addBotMessage(``);
+            }
+        }
+
+        chatForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const userInput = chatInput.value.trim();
+            if (userInput === '' || isBotTyping) return;
+            addUserMessage(userInput);
+            chatInput.value = '';
+            generateBotResponse(userInput);
+        });
+
+        function initializeChat() {
+            setAvatarState('idle');
+            const hour = new Date().getHours();
+            let greeting;
+            if (hour >= 5 && hour < 12) {
+                greeting = 'Good morning! ';
+            } else if (hour >= 12 && hour < 17) {
+                greeting = 'Good afternoon! ';
+            } else {
+                greeting = 'Good evening! ';
+            }
+            chatHistory.push({ role: "model", parts: [{text: greeting}] });
+            addBotMessage(greeting);
+        }
+        
+        initializeChat();
+    });
+    </script>
+</body>
+</html>
